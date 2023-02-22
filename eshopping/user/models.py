@@ -8,17 +8,25 @@ class UserInformation(models.Model):
     name = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    mobileno = models.IntegerField(
+    mobileno = models.CharField(
         unique=True,
-        error_messages={"unique": "The Geeks Field you entered is not unique."},
-        blank=True
+        error_messages={"unique": "The Geeks Field you entered is not unique"},
+        help_text="Please enter your mobile number here",
+        blank=True,
+        default=None,
+        max_length=12
     )
     birthdate = models.DateField(
-        help_text="Please use the following format: <em>DD-MM-YYYY</em>.",
-        blank=True
+        help_text="Please use the following format: <em>YYYY-MM-DD</em>.",
+        blank=True,
+        default=None,
     )
-    email = models.EmailField(max_length=254)
-    salary = models.FloatField(blank=True)
-    address = models.TextField(blank=True)
-    review = models.FileField(upload_to=None, max_length=254)
-    agree = models.BooleanField(help_text="Agree with Terms and conditions", blank=True)
+    age = models.DecimalField(max_digits=3, decimal_places=2, default=None)
+    email = models.EmailField(max_length=254, default=None)
+    salary = models.FloatField(blank=True, default=None)
+    address = models.TextField(blank=True, default=None)
+    review = models.CharField(max_length=300, default=None,
+                              help_text="Please upload file on your reviews")
+    agree = models.BooleanField(
+        help_text="Agree with Terms and conditions", blank=True, default=None
+    )
