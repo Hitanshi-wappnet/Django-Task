@@ -3,6 +3,11 @@ from django.db import models
 
 # Create your models here.
 class UserInformation(models.Model):
+    class Meta:
+        verbose_name = "User_Information"
+        # ordering = [-1]
+        # db_table = 'Registration'
+
     id = models.AutoField(auto_created=True, primary_key=True,
                           verbose_name="ID")
     name = models.CharField(max_length=255)
@@ -21,7 +26,7 @@ class UserInformation(models.Model):
         blank=True,
         default=None,
     )
-    age = models.DecimalField(max_digits=3, decimal_places=2, default=None)
+    age = models.DecimalField(max_digits=5, decimal_places=0, default=None)
     email = models.EmailField(max_length=254, default=None)
     salary = models.FloatField(blank=True, default=None)
     address = models.TextField(blank=True, default=None)
