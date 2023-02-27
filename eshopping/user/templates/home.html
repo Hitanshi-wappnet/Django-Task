@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<body>
+    {% block userinfo %}
+    <h2>The list of user are: </h2>
+    <ol>
+        {% for item in data %}
+            <li>{{ item }}</li>
+        {% endfor %}
+        {% for item in data %}
+            {% if item == "Shivam" %}
+                <p>Shivam is present in the list.</p>
+            {% endif %}
+        {% endfor %}
+    </ol>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <body>
+        <h1>Hello World!</h1>
+        <p>Welcome to my first Django project!</p>
+        {% block userinfo %}
+        {% endblock %}
+    {% load static %}
+    <img src="{% static 'nature.jpg' %}" alt="My image">
+</body>
+</html>

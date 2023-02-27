@@ -3,14 +3,9 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello This is shopping Website",
-                        content_type="text/plain")
+    user_list = {"Shreya", "Khyati", "Shivam", "Prish"}
+    return render(request, "home.html", context={"data": user_list})
 
 
 def welcome(request):
-    return HttpResponse(
-        "<h1><center>Welcome to the eshopping website</center></h1>"
-        )
-
-
-# Create your views here.
+    return HttpResponse("<h1><center>Welcome to the eshopping website</center></h1>")
